@@ -1,101 +1,32 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>scratch</title>
-<link type="text/css" href="style.css" rel="stylesheet"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-<body class="state_1">
-<div class="state">
-	<div class="nav-button one-go nav-col-3 nav-row-1 link_3"></div>
-	<div class="nav-button two-go nav-col-2 nav-row-1 link_2"></div>
-	<div class="nav-button three-go nav-col-1 nav-row-1 link_1"></div>
-	<div class="nav-button four-go nav-col-3 nav-row-2 link_6"></div>
-	<div class="nav-button five-go nav-col-2 nav-row-2 link_5"></div>
-	<div class="nav-button six-go nav-col-1 nav-row-2 link_4"></div>
-	<div class="nav-button seven-go nav-col-3 nav-row-3 link_9"></div>
-	<div class="nav-button eight-go nav-col-2 nav-row-3 link_8"></div>
-	<div class="nav-button nine-go nav-col-1 nav-row-3 link_7"></div>
-	<section class="panel page-one row-one"></section>
-	<section class="panel page-one row-two"></section>
-	<section class="panel page-one row-three"></section>
-	<section class="panel page-two row-one"></section>
-	<section class="panel page-two row-two"></section>
-	<section class="panel page-two row-three"></section>
-	<section class="panel page-three row-one"></section>
-	<section class="panel page-three row-two"></section>
-	<section class="panel page-three row-three"></section>
-</div>
-    <script>
-		var state;
-		var row = 1;
-		var col = 1;
-		jQuery('.nav-col-1').on('click' , function(){
-			col = 1;
-			return col;		
-		});
-		jQuery('.nav-col-2').on('click' , function(){
-			col = 2;
-			return col;		
-		});
-		jQuery('.nav-col-3').on('click' , function(){
-			col = 3;
-			return col;		
-		});
-		jQuery('.nav-row-1').on('click' , function(){
-			row = 1;
-			return row;		
-		});
-		jQuery('.nav-row-2').on('click' , function(){
-			row = 2;
-			return row;		
-		});
-		jQuery('.nav-row-3').on('click' , function(){
-			row = 3;
-			return row;		
-		});
-		jQuery('html').on('wheel', function (e) {
-    		var delta = e.originalEvent.deltaY;
-    		if (row  < 3 && delta > 0) {
-				row++;
-				change_states();
-				return row;
-    		} else if (row > 1 && delta < 0) {
-				row--;
-				change_states();
-				return row;
-   		 	}
-		});
-		function get_state(){
-			var c;
-			if(row == 1){
-				c = 0;
-			}
-			if(row == 2){
-				c = 3;
-			}
-			if(row == 3){
-				c = 6;
-			}
-			state = col + c;
-			return state;
-			
-		}
-		function change_states(){
-			get_state();
-			for(i=1;i<10;i++){
-				jQuery('body').removeClass('state_' + i);
-			}
-			jQuery('body').addClass('state_' + state );
-		}
-		
-		for(j=1;j<10;j++){
-			jQuery('.link_' + j).on('click' , function(){
-				change_states();
-			});
-		}
-		
-    </script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>scratch</title>
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body class="state_1">
+		<div class="state">
+			<div class="nav-button one-go nav-col-3 nav-row-1 link_3"></div>
+			<div class="nav-button two-go nav-col-2 nav-row-1 link_2"></div>
+			<div class="nav-button three-go nav-col-1 nav-row-1 link_1"></div>
+			<div class="nav-button four-go nav-col-3 nav-row-2 link_6"></div>
+			<div class="nav-button five-go nav-col-2 nav-row-2 link_5"></div>
+			<div class="nav-button six-go nav-col-1 nav-row-2 link_4"></div>
+			<div class="nav-button seven-go nav-col-3 nav-row-3 link_9"></div>
+			<div class="nav-button eight-go nav-col-2 nav-row-3 link_8"></div>
+			<div class="nav-button nine-go nav-col-1 nav-row-3 link_7"></div>
+			<section class="panel page-one row-one"></section>
+			<section class="panel page-one row-two"></section>
+			<section class="panel page-one row-three"></section>
+			<section class="panel page-two row-one"></section>
+			<section class="panel page-two row-two"></section>
+			<section class="panel page-two row-three"></section>
+			<section class="panel page-three row-one"></section>
+			<section class="panel page-three row-two"></section>
+			<section class="panel page-three row-three"></section>
+		</div>
+		<script src="js/navigation.js"></script>
+	</body>
 </html>
